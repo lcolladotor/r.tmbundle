@@ -17,7 +17,6 @@ fi
 
 osascript -e 'on run(theCode)' \
 		  -e 'tell application "R" to activate' \
-		  -e 'if (item 2 of theCode) is not "" then tell application "R" to cmd "setwd('\''" &amp; (item 2 of theCode) &amp; "'\'')"' \
 		  -e 'tell application "R" to cmd (item 1 of theCode)' \
 		  -e 'end run' -- "$rawText" "$curDir"
 
@@ -36,7 +35,7 @@ fi
 	<key>fallbackInput</key>
 	<string>line</string>
 	<key>input</key>
-	<string>selection</string>
+	<string>line</string>
 	<key>inputFormat</key>
 	<string>text</string>
 	<key>keyEquivalent</key>
@@ -51,6 +50,8 @@ fi
 	<string>discard</string>
 	<key>scope</key>
 	<string>source.r</string>
+	<key>semanticClass</key>
+	<string>process.external.run.r</string>
 	<key>uuid</key>
 	<string>ED52D514-DDB8-4D8C-BE0C-F791C70F530A</string>
 	<key>version</key>

@@ -21,6 +21,19 @@ osascript -e 'on run(theCode)' \
 		  -e 'if (item 2 of theCode) is not "" then tell application "R" to cmd "setwd('\''" &amp; (item 2 of theCode) &amp; "'\'')"' \
 		  -e 'tell application "R" to cmd (item 1 of theCode)' \
 		  -e 'end run' -- "$rawText" "$curDir"
+
+if [ "$TM_LINE_NUMBER" != "" ]; then
+    "$TM_MATE" -l "$(($TM_LINE_NUMBER+1)):1000000"
+elif [[ $TM_SELECTION =~ [1-9][0-9]*:?[0-9]*-([1-9][0-9]*):?[0-9]* ]]; then
+    # Regular Selection
+    "$TM_MATE" -l "$((${BASH_REMATCH[1]}+1)):1000000"
+elif [[ $TM_SELECTION =~ [1-9][0-9]*:?[0-9]*x([1-9][0-9]*):?[0-9]* ]]; then 
+    # Block (option) selection
+    "$TM_MATE" -l "$((${BASH_REMATCH[1]}+1)):1000000"
+else 
+    "$TM_MATE"
+fi
+
 </string>
 	<key>input</key>
 	<string>selection</string>
