@@ -39,8 +39,6 @@ fi
 	<string>selection</string>
 	<key>inputFormat</key>
 	<string>text</string>
-	<key>keyEquivalent</key>
-	<string>@r</string>
 	<key>name</key>
 	<string>Run Document / Selection in R</string>
 	<key>outputCaret</key>

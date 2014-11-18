@@ -27,7 +27,7 @@ osascript -e 'on run(theCode)' \
 	<key>inputFormat</key>
 	<string>text</string>
 	<key>keyEquivalent</key>
-	<string>~@R</string>
+	<string>@r</string>
 	<key>name</key>
 	<string>R.app</string>
 	<key>outputCaret</key>
