@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>command</key>
+	<string># input is selection or document
+rawText="`cat`"
+
+osascript -e 'on run(theCode)' \
+                  -e 'tell application "iTerm2"' \
+                        -e 'set myterm to the current terminal' \
+                        -e 'tell myterm' \
+                                -e 'set mysession to the current session' \
+                                -e 'tell mysession' \
+                                        -e 'write text (item 1 of theCode)' \
+                                -e 'end tell' \
+                        -e 'end tell' \
+                  -e 'end tell' \
+                -e 'end run' -- "$rawText"
+
+open "txmt://open?line=$(($TM_LINE_NUMBER+1))&amp;column=1000000" &amp;</string>
+	<key>input</key>
+	<string>line</string>
+	<key>keyEquivalent</key>
+	<string>@</string>
+	<key>name</key>
+	<string>send to iTerm</string>
+	<key>outputLocation</key>
+	<string>discard</string>
+	<key>scope</key>
+	<string>source.r</string>
+	<key>uuid</key>
+	<string>6BE06765-CC1B-4D75-86AE-46B087B85111</string>
+</dict>
+</plist>
