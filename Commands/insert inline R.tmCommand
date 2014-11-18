@@ -25,7 +25,7 @@ echo -e "\`r \`"
 	<key>outputLocation</key>
 	<string>atCaret</string>
 	<key>scope</key>
-	<string>source.r, source.rd.console</string>
+	<string>text.html.markdown</string>
 	<key>uuid</key>
 	<string>FFC05DC1-6AE2-4A37-A469-701C347E2BA1</string>
 	<key>version</key>
