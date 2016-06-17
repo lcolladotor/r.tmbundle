@@ -11,17 +11,18 @@
 # input is selection or document
 rawText="`cat`"
 
-osascript -e 'on run(theCode)' \
-                  -e 'tell application "iTerm2"' \
-                        -e 'set myterm to the current terminal' \
-                        -e 'tell myterm' \
-                                -e 'set mysession to the current session' \
-                                -e 'tell mysession' \
-                                        -e 'write text (item 1 of theCode)' \
-                                -e 'end tell' \
-                        -e 'end tell' \
-                  -e 'end tell' \
-                -e 'end run' -- "$rawText"
+osascript \
+    -e 'on run(theCode)' \
+        -e 'tell application "iTerm"' \
+            -e 'tell current window' \
+                -e 'tell current tab' \
+                    -e 'tell current session' \
+                        -e 'write text (item 1 of theCode)' \
+                    -e 'end tell' \
+                -e 'end tell' \
+            -e 'end tell' \
+        -e 'end tell' \
+    -e 'end run' -- "$rawText"
 
 if [ "$TM_LINE_NUMBER" != "" ]; then
     "$TM_MATE" -l "$(($TM_LINE_NUMBER+1)):1000000"
